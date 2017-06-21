@@ -1,4 +1,4 @@
-baseURL = "https://bryangilbert.com"
+baseURL = "http://bryangilbert.com/"
 languageCode = "en-us"
 title = "Bryan Gilbert's Blog"
 theme = "academic"
@@ -58,6 +58,16 @@ defaultContentLanguageInSubdir = false
     icon = "twitter"
     icon_pack = "fa"
     link = "//twitter.com/bryangilbert"
+
+  [[params.social]]
+    icon = "user-circle-o"
+    icon_pack = "fa"
+    link = "/etc/resume"
+
+  [[params.social]]
+    icon = "rss-square"
+    icon_pack = "fa"
+    link = "/post/index.xml"
 
 
 [[menu.main]]
