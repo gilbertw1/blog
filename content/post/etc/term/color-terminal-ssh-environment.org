@@ -46,7 +46,7 @@ There are a couple of things to notice about this script.
 
 Now we can simply run the script to change the color of our terminal using one of the identifiers:
 
-<video class="aligncenter" autoplay="autoplay" loop="loop"><source type="video/mp4" src="/img/colorterm-example.mp4"></video>
+<video class="aligncenter" autoplay="autoplay" loop="loop" muted="muted"><source type="video/mp4" src="/img/colorterm-example.mp4"></video>
 
 Right, now we use this script to create a function that will wrap =ssh= and automatically change the background color of the terminal whenever we ssh into a server. The only slight catch is that we need to setup a trap that will set the terminal color back to the default upon completion of the function (and the ssh session).
 
@@ -75,7 +75,7 @@ alias ssh=color-ssh
 
 Now when we invoke =ssh= it will change the background color of the terminal (or tmux pane) based on the server name being accessed. You can see it in action here:
 
-<video class="aligncenter" autoplay="autoplay" loop="loop"><source type="video/mp4" src="/img/color-ssh-example.mp4"></video>
+<video class="aligncenter" autoplay="autoplay" loop="loop" muted="muted"><source type="video/mp4" src="/img/color-ssh-example.mp4"></video>
 
 And that's all there is to it! This can be easily modified to work for more environments by customizing the matching statements used in =color-ssh= and the identifiers used to select colors in =colorterm.sh=. I recommend pairing this with an ssh config file that can be used to create aliases for each server that you can tack identifiers onto like =-prod= or =-dev=.
 
