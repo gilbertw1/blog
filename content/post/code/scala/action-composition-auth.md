@@ -2,10 +2,12 @@
 title: "Play 2: Using Action Composition for Easy Authentication and Authorization"
 slug: "action-composition-auth"
 date: "2013-07-05"
-categories: ["scala", "play2"]
+categories: ["code"]
+tags: ["scala", "playframework"]
 summary: "Simple authentication using action composition."
 disqus_identifier: "http://bryangilbert.com/code/2013/07/05/action-composition-auth/"
 disqus_url: "http://bryangilbert.com/code/2013/07/05/action-composition-auth/"
+banner: "/img/banners/scala-banner.png"
 aliases:
   - "/blog/2013/07/05/action-composition-auth/"
   - "/code/2013/07/05/action-composition-auth/"

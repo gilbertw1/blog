@@ -2,10 +2,12 @@
 title: "Play 2: Serializing Case Classes with Anorm Pk Type to Json"
 slug: "anorm-pk-json"
 date: "2013-07-01"
-categories: ["scala", "play2", "anorm"]
+categories: ["code"]
+tags: ["scala", "playframework", "anorm"]
 summary: "Simple serialization of anorm pk type to json."
 disqus_identifier: "http://bryangilbert.com/code/2013/07/01/anorm-pk-json/"
 disqus_url: "http://bryangilbert.com/code/2013/07/01/anorm-pk-json/"
+banner: "/img/banners/scala-banner.png"
 aliases:
   - "/blog/2013/07/01/anorm-pk-json/"
   - "/code/2013/07/01/anorm-pk-json/"

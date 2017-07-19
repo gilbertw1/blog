@@ -1,8 +1,10 @@
 #+TITLE: SSH Environment Specific Terminal Background Colors
 #+SLUG: dynamic-ssh-terminal-background-colors
 #+DATE: 2017-07-09
-#+CATEGORIES: zsh terminal linux
+#+CATEGORIES: terminal
+#+TAGS: zsh terminal linux
 #+SUMMARY: Setup dynamic terminal background colors depending on SSH host.
+#+BANNER: /img/banners/terminal-banner.png
 #+DRAFT: false
 
 How many times have you logged into a server environment and had to run a few commands, only to discover that you were in fact logged into the wrong server? Hopefully not very many times, because as I have learned the results can be painful (if not catostrophic).
@@ -11,7 +13,7 @@ I recently read [[http://www.drinchev.com/blog/ssh-and-terminal-background/][thi
 
 The main criteria for this solution are that it works on Linux and plays nicely with tmux, given that I perform pretty much all of my command line work inside of tmux sessions. Additionally, I decided to tackle this using ZSH since it's my shell of choice, however this should work pretty easily in BASH as well with slight modifications.
 
-To start, I decided to implement a simple script that would allow me to change the color of the terminal based on an identifier provided to the script. This was pretty simple to do, given how easy it is to change the background color of any xterm compatible terminal by simply printing specific codes. Additionally, after a bit of experimentation I found that I could easily modify the background color of the current tmux pane. To perform these tasks, I implemented a shell script I simply call =colorterm.sh= :
+To start, I decided to implement a simple script that would allow me to change the color of the terminal based on an identifier provided to the script. This was pretty simple to do, given how easy it is to change the background color of any xterm compatible terminal by simply printing specific codes. Additionally, after a bit of experimentation I found that I could easily modify the background color of the current tmux pane using =tmux select-pane=. To perform this task, I implemented a shell script I simply call =colorterm.sh= :
 
 #+BEGIN_SRC bash
 #!/bin/sh
@@ -46,9 +48,9 @@ There are a couple of things to notice about this script.
 
 Now we can simply run the script to change the color of our terminal using one of the identifiers:
 
-<video class="aligncenter" autoplay="autoplay" loop="loop" muted="muted"><source type="video/mp4" src="/img/colorterm-example.mp4"></video>
+<video class="aligncenter" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline"><source type="video/mp4" src="/img/colorterm-example.mp4"></video>
 
-Right, now we use this script to create a function that will wrap =ssh= and automatically change the background color of the terminal whenever we ssh into a server. The only slight catch is that we need to setup a trap that will set the terminal color back to the default upon completion of the function (and the ssh session).
+Right, now we can use this script to create a function that will wrap =ssh= and automatically change the background color of the terminal whenever we ssh into a server. The only slight catch is that we need to setup a trap that will set the terminal color back to the default upon completion of the function (and the ssh session).
 
 #+BEGIN_SRC bash
 color-ssh() {
@@ -64,7 +66,7 @@ color-ssh() {
 }
 #+END_SRC
 
-This rather simple function starts out by setting up a trap that will execute when the function completes. Upon completion, the =colorterm.sh= script with be executed with no parameters setting the terminal background to the default color. Next we inspect the parameters passed to the function to see if there is a match for either =prod=, =dev=, or neither, and pass the appropriate identifier to the =colorterm.sh= script. Depending on the scenario, these checks could be made much more complex than they are and a wider range of colors and identifiers could be employed. Finally, we defer to =ssh= and pass along any paramters provided to the current function.
+This rather simple function starts out by setting up a trap that will execute when the function completes. Upon completion, the =colorterm.sh= script with be executed with no parameters setting the terminal background to the default color. Next we inspect the parameters passed to the function to see if there is a match for either =prod=, =dev=, or neither, and pass the appropriate identifier to the =colorterm.sh= script. Depending on the scenario, these checks could be made much more complex than they are and a wider range of colors and identifiers could be employed. Finally, we defer to =ssh= and pass along any parameters provided to the current function.
 
 That's mostly all there is to it! All that's left to do is setup the proper completions and the alias:
 
@@ -75,7 +77,7 @@ alias ssh=color-ssh
 
 Now when we invoke =ssh= it will change the background color of the terminal (or tmux pane) based on the server name being accessed. You can see it in action here:
 
-<video class="aligncenter" autoplay="autoplay" loop="loop" muted="muted"><source type="video/mp4" src="/img/color-ssh-example.mp4"></video>
+<video class="aligncenter" autoplay="autoplay" loop="loop" muted="muted" playsinline="playsinline"><source type="video/mp4" src="/img/color-ssh-example.mp4"></video>
 
 And that's all there is to it! This can be easily modified to work for more environments by customizing the matching statements used in =color-ssh= and the identifiers used to select colors in =colorterm.sh=. I recommend pairing this with an ssh config file that can be used to create aliases for each server that you can tack identifiers onto like =-prod= or =-dev=.
 

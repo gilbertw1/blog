@@ -2,10 +2,12 @@
 title: "Rx: The Importance of Honoring Unsubscribe"
 slug: "rx-honoring-unsubscribe"
 date: "2013-11-03"
-categories: ["scala", "rxjava", "play", "iteratees"]
+categories: ["code"]
+tags: ["scala", "rxjava", "playframework", "iteratees"]
 summary: "The importance of honoring unsubscribe in rxJava."
 disqus_identifier: "http://bryangilbert.com/code/2013/11/03/rx-the-importance-of-honoring-unsubscribe/"
 disqus_url: "http://bryangilbert.com/code/2013/11/03/rx-the-importance-of-honoring-unsubscribe/"
+banner: "/img/banners/scala-banner.png"
 aliases:
   - "/blog/2013/11/03/rx-the-importance-of-honoring-unsubscribe/"
   - "/code/2013/11/03/rx-the-importance-of-honoring-unsubscribe/"

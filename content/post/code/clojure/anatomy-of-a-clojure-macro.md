@@ -2,10 +2,12 @@
 title: "The Anatomy of a Clojure Macro"
 slug: "anatomy-of-a-clojure-macro"
 date: "2013-07-30"
-categories: ["clojure", "clojurescript", "macro", "tutorial"]
+categories: ["code"]
+tags: ["clojure", "clojurescript", "macro", "tutorial"]
 summary: "Learn the anatomy of a macro in clojure."
 disqus_identifier: "http://bryangilbert.com/code/2013/07/30/anatomy-of-a-clojure-macro/"
 disqus_url: "http://bryangilbert.com/code/2013/07/30/anatomy-of-a-clojure-macro/"
+banner: "/img/banners/clojure-banner.png"
 aliases:
   - "/blog/2013/07/30/anatomy-of-a-clojure-macro/"
   - "/code/2013/07/30/anatomy-of-a-clojure-macro/"

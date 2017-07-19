@@ -1,26 +1,30 @@
 baseURL = "http://bryangilbert.com/"
 languageCode = "en-us"
 title = "Bryan Gilbert's Blog"
-theme = "academic"
-copyright = "&copy; 2017 Bryan Gilbert"
+theme = "hugo-icarus-theme"
 
 disqusShortname = "bryangilbertsblog"
 googleAnalytics = "UA-42597902-1"
 
-enableEmoji = true
-footnotereturnlinkcontents = "<sup>^</sup>"
+paginate = 10
+footnotereturnlinkcontents = "↩"
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 [params]
-  name = "Bryan Gilbert"
-  email = "contact@bryan.sh"
-  avatar = "me.jpg"
+  author = "Bryan Gilbert"
+  bio = "Programmer that enjoys working on tough problems and learning new technologies."
+  location = "Charleston, SC"
+  email = "bryan@bryan.sh"
+  avatar = "/img/me.jpg"
+  copyright = "Bryan Gilbert"
+  date_format = "2006-01-02"
+  mainSections = ["post"]
 
-  date_format = "Mon, Jan 2, 2006"
-
-
+  custom_css = ["/css/custom.css", "/css/atom-one-dark.css"]
+  custom_js  = ["/js/custom.js", "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/scala.min.js"]
+  
   ################
   # Highlighting #
   ################
@@ -29,57 +33,40 @@ defaultContentLanguageInSubdir = false
   highlight_languages = ["python", "lisp", "clojure", "scala", "java", "rust"]
   highlight_style = "zenburn"
 
-  custom_css = ["custom.css"]
-  custom_js  = ["custom.js"]
 
+[params.profile]
+    follow_button = "https://github.com/gilbertw1"
 
   ##########
   # Social #
   ##########
 
-  sharing = true
+[social]
 
-  [[params.social]]
-    icon = "envelope"
-    icon_pack = "fa"
-    link = "mailto:contact@bryan.sh"
-
-  [[params.social]]
-    icon = "github"
-    icon_pack = "fa"
-    link = "//github.com/gilbertw1"
-
-  [[params.social]]
-    icon = "linkedin"
-    icon_pack = "fa"
-    link = "//linkedin.com/in/gilbertw1/"
-
-  [[params.social]]
-    icon = "twitter"
-    icon_pack = "fa"
-    link = "//twitter.com/bryangilbert"
-
-  [[params.social]]
-    icon = "user-circle-o"
-    icon_pack = "fa"
-    link = "/etc/resume"
-
-  [[params.social]]
-    icon = "rss-square"
-    icon_pack = "fa"
-    link = "/post/index.xml"
+  github = "gilbertw1"
+  linkedin = "gilbertw1"
+  reddit = "gilbertw1"
+  twitter = "bryangilbert"
+  googleplus = "+BryanGilbert"
 
 
-[[menu.main]]
-  name = "Posts"
-  url = "#posts"
-  weight = 3
+[params.widgets]
+    recent_articles = true
+    categories = true
+    tags = true
 
-[[menu.main]]
-  name = "About"
-  url = "#about"
-  weight = 5
 
-[taxonomies]
-  tag = "tags"
-  category = "categories"
+[[params.menu]]
+    before = true
+    label  = "Home"
+    link   = "/"
+
+[[params.menu]]
+    before = false
+    label  = "Tags"
+    link   = "tags/"
+
+[[params.menu]]
+    before = false
+    label  = "Categories"
+    link   = "categories/"

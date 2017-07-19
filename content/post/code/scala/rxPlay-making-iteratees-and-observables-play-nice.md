@@ -2,10 +2,12 @@
 title: "RxPlay: Diving Into Iteratees and Observables and Making Them Place Nice"
 slug: "rxplay-iteratees-observables"
 date: "2013-10-22"
-categories: ["scala", "rxjava", "play", "iteratees"]
+categories: ["code"]
+tags: ["scala", "rxjava", "play", "iteratees"]
 summary: "Making iteratees and observables play nice."
 disqus_identifier: "http://bryangilbert.com/code/2013/10/22/rxPlay-making-iteratees-and-observables-play-nice/"
 disqus_url: "http://bryangilbert.com/code/2013/10/22/rxPlay-making-iteratees-and-observables-play-nice/"
+banner: "/img/banners/scala-banner.png"
 aliases:
   - "/blog/2013/10/22/rxPlay-making-iteratees-and-observables-play-nice/"
   - "/code/2013/10/22/rxPlay-making-iteratees-and-observables-play-nice/"

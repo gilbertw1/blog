@@ -2,10 +2,12 @@
 title: "Using Clojurescript, Macros, and core.async to Escape Callback Hell (Asynchronize)"
 slug: "escape-callback-hell-core-async"
 date: "2013-07-19"
-categories: ["clojure", "clojurescript", "javascript", "core.async", "macro"]
+categories: ["code"]
+tags: ["clojure", "clojurescript", "javascript", "core.async", "macro"]
 summary: "Elegantly handle callbacks using core.async and clojure macros."
 disqus_identifier: "http://bryangilbert.com/code/2013/07/19/escaping-callback-hell-with-core-async/"
 disqus_url: "http://bryangilbert.com/code/2013/07/19/escaping-callback-hell-with-core-async/"
+banner: "/img/banners/clojure-banner.png"
 aliases:
   - "/blog/2013/07/19/escaping-callback-hell-with-core-async/"
   - "/code/2013/07/19/escaping-callback-hell-with-core-async/"

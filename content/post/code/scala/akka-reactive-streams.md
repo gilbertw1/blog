@@ -2,10 +2,12 @@
 title: "akka-stream: Akka's reactive stream implementation"
 slug: "akka-reactive-streams"
 date: "2015-02-04"
-categories: ["scala", "akka", "akka-http", "akka-stream"]
+categories: ["code"]
+tags: ["scala", "akka", "akka-http", "akka-stream"]
 summary: "Overview of akka reactive streams."
 disqus_identifier: "http://bryangilbert.com/blog/2015/02/04/akka-reactive-streams"
 disqus_url: "http://bryangilbert.com/blog/2015/02/04/akka-reactive-streams"
+banner: "/img/banners/scala-banner.png"
 aliases:
   - "/blog/2015/02/04/akka-reactive-streams/"
   - "/code/2015/02/04/akka-reactive-streams/"
