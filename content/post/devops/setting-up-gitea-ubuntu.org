@@ -138,8 +138,6 @@ Since we want to run Gitea as a daemon and not have to manually worry about star
 sudo vim /etc/systemd/system/gitea.service
 #+END_SRC
 
-With the content:
-
 #+BEGIN_SRC ini
 [Unit]
 Description=Gitea (Git with a cup of tea)
@@ -187,8 +185,6 @@ Next let's go ahead and add an enabled site entry for Gitea by creating the foll
 #+BEGIN_SRC sh
 sudo vim /etc/nginx/sites-enabled/gitea
 #+END_SRC
-
-With the content:
 
 #+BEGIN_SRC nginx
 server {
