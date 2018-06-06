@@ -124,7 +124,9 @@ The "General Application Settings" should be configured as:
 
 <img src="/img/setting-up-gitea/general-settings.png" alt="General Application Settings" border="2">
 
-As for the rest of the settings you can leave them at the defaults or configure them if you like, although I would recommend setting up an admin account before moving forward. Also, don't forgot to correctly set the 'Domain' and 'Application Url' to use the domain that you intend to host this server on. If you aren't using a custom domain, then just use the address of your server here.
+Also, don't forgot to correctly set the 'Domain' and 'Application Url' to use the domain that you intend to host this server on. If you aren't using a custom domain, then just use the address of your server here. As for the rest of the settings you can leave them at the defaults or configure them if you like, although I would recommend setting up an admin account before moving forward.
+
+/Warning: I highly recommend checking the 'Disable Self-registration' box so that random people can't create accounts on your server./
 
 Now that we've configured Gitea, feel free to kill the running process. We'll be adding a Systemd service shortly to handle starting and managing this process for us next.
 
