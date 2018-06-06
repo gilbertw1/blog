@@ -1,4 +1,4 @@
-baseURL = "http://bryangilbert.com/"
+baseURL = "//bryangilbert.com/"
 languageCode = "en-us"
 title = "Bryan Gilbert's Blog"
 theme = "hugo-icarus-theme"
@@ -22,7 +22,7 @@ defaultContentLanguageInSubdir = false
   date_format = "2006-01-02"
   mainSections = ["post"]
 
-  custom_css = ["/css/custom.css", "/css/atom-one-dark.css"]
+  custom_css = ["/css/custom.css", "/css/github.css"]
   custom_js  = ["/js/custom.js", "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/scala.min.js"]
   
   ################
