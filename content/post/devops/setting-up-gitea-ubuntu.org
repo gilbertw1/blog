@@ -7,7 +7,7 @@
 #+BANNER: /img/banners/git-banner.png
 #+DRAFT: false
 
-Since Github is being purchased by Microsoft and the world is in the process of ending, I thought this would be a good time to finally get around to setting up my own personal, self-hosted git server. This way when Microsoft fully takes over they won't be able to steal all of my hard written, pristine, beautiful code. To this end, I ended up creating a Gitea server and am very pleased with the results, so I decided to make a guide so that others could quickly get up and running with a fully functioning Gitea server as well.
+Since Github is being purchased by Microsoft, I thought this would be a good time to finally get around to setting up my own personal, self-hosted git server. To this end, I ended up creating a Gitea server and am very pleased with the results, so I decided to make a guide so that others could quickly get up and running with a fully functioning Gitea server as well.
 
 ** Table of Contents
   - [[#why-gitea][Why Gitea]]
@@ -28,7 +28,7 @@ The two main self-hosted git services I looked into when undertaking this task w
 
 The obvious choice that most people seem to be flocking to appears to be GitLab. Upon evaluating GitLab I found it's interface to be a bit clunky, but the real deal breaker for me was the fact that a base install of GitLab recommends 4 whole gigabytes of RAM. This probably isn't a huge deal if you are running this instance for an organization, but as a personal git service, requiring 4GB of RAM significantly increases the cost of a cloud VM. I'm not trying to say there is anything wrong with GitLab, it's a great piece of software, but didn't quite meet my needs. 
 
-The other option that I found occasionally thrown around on the Reddit threads heralding the fast approaching dooms day, was Gitea. Upon initial inspection, I was delighted to find that I could simply download and run a single binary to start the server. I found the interface to be a very clean (albeit shameful clone of Github's), and that it contains a rather large feature set including all of the features that I need. Gitea is also very lightweight requiring minimal resources to run. I found that the process was only using about 25MB of RAM with a handful of repositories.
+The other option that I found occasionally mentioned recently in Reddit and Hacker News threads, was Gitea. Upon initial inspection, I was delighted to find that I could simply download and run a single binary to start the server. I found the interface to be a very clean (albeit shameful clone of Github's), and that it contains a rather large feature set including all of the features that I need. Gitea is also very lightweight requiring minimal resources to run. I found that the process was only using about 25MB of RAM with a handful of repositories.
 
 ** About This Guide
 
