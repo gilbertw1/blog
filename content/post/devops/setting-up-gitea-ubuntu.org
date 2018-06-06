@@ -10,17 +10,17 @@
 Since Github is being purchased by Microsoft and the world is in the process of ending, I thought this would be a good time to finally get around to setting up my own personal, self-hosted git server. This way when Microsoft fully takes over they won't be able to steal all of my hard written, pristine, beautiful code. To this end, I ended up creating a Gitea server and am very pleased with the results, so I decided to make a guide so that others could quickly get up and running with a fully functioning Gitea server as well.
 
 ** Table of Contents
-- [[#why-gitea][Why Gitea]]
-- [[#about-this-guide][About This Guide]]
-- [[#setup-ubuntu-server][Setup Ubuntu Server]]
-- [[#setup-postgresql][Setup PostgreSQL]]
-- [[#install-and-configure-gitea][Install and Configure Gitea]]
-- [[#setup-systemd-service][Setup Systemd Service]]
-- [[#setup-nginx][Setup Nginx]]
-- [[#setup-fail2ban][Setup Fail2ban]]
-- [[#enable-https-using-lets-encrypt][Enable HTTPS using Let's Encrypt]]
-- [[#setup-certificate-renewal][Setup Certificate Renewal]]
-- [[#enable-git-over-ssh][Enable Git Over SSH]]
+  - [[#why-gitea][Why Gitea]]
+  - [[#about-this-guide][About This Guide]]
+  - [[#setting-up-ubuntu-server][Setting up Ubuntu Server]]
+  - [[#setting-up-postgresql][Setting up PostgreSQL]]
+  - [[#installing-and-configuring-gitea][Installing and Configuring Gitea]]
+  - [[#setting-up-a-systemd-service][Setting up a Systemd Service]]
+  - [[#setting-up-nginx][Setting up Nginx]]
+  - [[#setting-up-fail2ban][Setting up Fail2ban]]
+  - [[#enabling-https-using-lets-encrypt][Enabling HTTPS using Let's Encrypt]]
+  - [[#setting-automatic-certificate-renewal][Setting Automatic Certificate Renewal]]
+  - [[#enabling-git-over-ssh][Enabling Git Over SSH]]
 
 ** Why Gitea
 
@@ -45,7 +45,7 @@ At the end of this guide if followed fully, we should have a Gitea instance that
 
 Not all of these are required for a working Gitea server, but nevertheless I feel that each makes the resulting Gitea server more robust.
 
-** Setup Ubuntu Server
+** Setting up Ubuntu Server
 
 I've chosen to run my Gitea server on an AWS instance. I run most of my servers on AWS and have by far the most experience with this cloud provider. You can easily run Gitea on a physical server at home or any other cloud provider you choose. I've set mine up using a =t2.small= instance which will run me around $10 a month and has more than enough resources for my purposes.
 
@@ -66,7 +66,7 @@ sudo adduser --system --shell /bin/bash --group --disabled-password --home /home
 
 Note that we've created this user with =--disabled-password= indicating that this user cannot actually log in with a password, which makes sense since we'll just being using it to run Gitea.
 
-** Setup PostgreSQL
+** Setting up PostgreSQL
 
 Now that we've got an up to date ubuntu instance, let's set up a database for Gitea to use. This step is purely optional as Gitea does come bundled with a sqlite database, however I prefer to use an actual database so that I don't have to worry about possible performance bottlenecks down the road. For my database I chose to use PostgreSQL, although you could just as easily use MySQL/MariaDB.
 
@@ -93,7 +93,7 @@ CREATE DATABASE gitea OWNER gitea;
 
 This will create a user =gitea= that can log in with the password =<password>= (you should change this) and a database also named =gitea=.
 
-** Install and Configure Gitea
+** Installing and Configuring Gitea
 
 Now that we've setup our server and our database, let's go ahead and install Gitea using our =git= user:
 
@@ -130,7 +130,7 @@ Now that we've configured Gitea, feel free to kill the running process. We'll be
 
 /Quick Note: If you are using EC2 to run this server, don't forget to remove access on port 3000./
 
-** Setup Systemd Service
+** Setting up a Systemd Service
 
 Since we want to run Gitea as a daemon and not have to manually worry about starting it or ensuring that it's running, we're going to setup a Systemd service that will do it for us. We can do that by creating a service file:
 
@@ -172,7 +172,7 @@ sudo systemctl start gitea.service
 
 Easy peasy, now Gitea will automatically start when the server is restarted. Now let's move onto setting up Nginx.
 
-** Setup Nginx
+** Setting up Nginx
 
 I'm a big fan of Nginx as it's a rock solid piece of software and as such I decided to use Nginx as a reverse proxy that performs SSL termination for the Gitea server. Gitea could just as easily be run with a different reverse proxy (such as Apache) or entirely standalone.
 
@@ -218,7 +218,7 @@ sudo service nginx reload
 
 Once this is done, you should be able to manually start your Gitea server and visit it on port 80 to see the Gitea interface.
 
-** Setup Fail2ban
+** Setting up Fail2ban
 
 In an effort to add a little extra security we're going to include Fail2ban to lock out users for a period 15 minutes if they have 10 or more failed login attempts within an hour. This is also an optional step, but I recommend not skipping it. To get started let's install Fail2ban:
 
@@ -264,7 +264,7 @@ sudo service fail2ban restart
 
 Now that we've defeated all the bad men, let us move on to adding HTTPS support.
 
-** Enable HTTPS using Let's Encrypt
+** Enabling HTTPS using Let's Encrypt
 
 At this point in time, I'm assuming that you'll be using a custom hostname for your Gitea server and that you plan on securing it using SSL. If you do not plan on doing either of those things then you can skip this section, but I highly, highly recommend that you do secure your server with SSL. Before we get into this section, you need to make sure that you have your DNS properly configured and pointed to your Gitea server. If you don't know how to do this, I recommend checking your DNS provider's documentation.
 
@@ -289,7 +289,7 @@ Assuming that DNS is configured properly and the Nginx listener server name matc
 
 We're not quite done yet though, we need to setup a Systemd timer to periodically renew your certificates.
 
-** Setup Certificate Renewal
+** Setting Automatic Certificate Renewal
 
 Now that we're up and running with SSL, we need to periodically maintain our certificates. Luckily Certbot makes this very easy to do and we can simply create a Systemd timer to do it for us.
 
@@ -334,7 +334,7 @@ sudo systemctl start certbot-renewal.timer
 
 And that's it, our certificates will remain up to date until the end of time (or we forget to pay our renewal fee).
 
-** Enable Git Over SSH
+** Enabling Git Over SSH
 
 Finally, we're in the home stretch. All we need to do now is have Gitea overwrite the authorized keys file for the Git user. This can simply be done by visiting the admin panel for the Gitea server (=https://<your-server>/admin=) and clicking the "Run" button to rewrite the '.ssh/authorized_keys' file:
 
