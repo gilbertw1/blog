@@ -195,8 +195,8 @@ Let's step through what we're doing in the above function.
 2. Next we create the observerable, passing a function that uses the enumerator to send ```onNext``` messages to the observer.
 3. Then we iterate the enumerator using a foreach Iteratee which calls the ```onNext``` method of the observer with each value
 4. We invoke the ```onComplete``` method on the future returned from iterating the enum
-4. Next we match on the ```onComplete``` success case and tell the observer we're complete
-5. Otherwise we notify the observer of an error if we encounter one
+5. Next we match on the ```onComplete``` success case and tell the observer we're complete
+6. Otherwise we notify the observer of an error if we encounter one
 
 Finally we return the subscription, again with no way of unsubscribing. (edit: This is Bad! See [this followup post](http://bryangilbert.com/code/2013/11/03/rx-the-importance-of-honoring-unsubscribe/))
 

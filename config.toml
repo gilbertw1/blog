@@ -25,7 +25,8 @@ defaultContentLanguageInSubdir = false
   custom_css = ["/css/custom.css", "/css/github.css"]
   custom_js  = ["/js/custom.js",
                 "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/scala.min.js",
-                "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/clojure.min.js"]
+                "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/clojure.min.js",
+                "//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/rust.min.js"]
   
   ################
   # Highlighting #
